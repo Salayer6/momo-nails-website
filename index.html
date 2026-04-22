@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momo Nails | Arte en tus manos | Nail Art & Press-on</title>
+    <meta name="description" content="Especialista en Nail Art, Press-on Nails y Manicura con Técnica Combinada. Transforma tus manos con un diseño único y profesional.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <nav id="navbar">
+        <a href="#" class="logo">MOMO NAILS</a>
+        <div class="nav-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#galeria">Galería</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+        <a href="https://wa.me/yournumber" class="btn" style="padding: 10px 25px; font-size: 0.8rem;">RESERVAR</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Arte que <span>Vistes</span></h1>
+            <p>Especialistas en diseño de autor, press-on personalizadas y cuidado profesional de tus uñas.</p>
+            <div class="hero-btns">
+                <a href="#servicios" class="btn">Ver Servicios</a>
+                <a href="#galeria" class="btn" style="background: transparent; color: var(--primary); margin-left: 15px;">Explorar Galería</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="servicios" class="container">
+        <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+        <div class="services-grid">
+            <div class="service-card glass reveal">
+                <i class="fas fa-paint-brush"></i>
+                <h3>Nail Art de Autor</h3>
+                <p>Desde diseños minimalistas hasta piezas artísticas complejas a mano alzada. Tu imaginación es el único límite.</p>
+            </div>
+            <div class="service-card glass reveal">
+                <i class="fas fa-hand-sparkles"></i>
+                <h3>Press-on Nails</h3>
+                <p>Uñas personalizadas, reutilizables y de calidad profesional. El look de salón en minutos, desde la comodidad de tu casa.</p>
+            </div>
+            <div class="service-card glass reveal">
+                <i class="fas fa-magic"></i>
+                <h3>Técnica Combinada</h3>
+                <p>Cuidado profundo de cutículas y nivelación de la placa ungueal para un acabado impecable y de larga duración.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="container">
+        <h2 class="section-title">Galería de <span>Arte</span></h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item reveal">
+                <img src="assets/nail1.jpg" alt="Nail Art Design 1">
+            </div>
+            <div class="portfolio-item reveal">
+                <img src="assets/nail2.jpg" alt="Press-on Nails 2">
+            </div>
+            <div class="portfolio-item reveal">
+                <img src="assets/nail3.jpg" alt="Combined Manicure 3">
+            </div>
+            <div class="portfolio-item reveal">
+                <img src="assets/nail4.jpg" alt="Nail Art Design 4">
+            </div>
+            <div class="portfolio-item reveal">
+                <img src="assets/nail5.jpg" alt="Nail Art Design 5">
+            </div>
+            <div class="portfolio-item reveal">
+                <img src="assets/nail6.jpg" alt="Nail Art Design 6">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="container">
+        <h2 class="section-title">¿Lista para <span>Brillar?</span></h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Reserva tu Cita</h3>
+                <p>Ubicados en el corazón de la ciudad. Atendemos bajo previa cita para brindarte una experiencia exclusiva.</p>
+                <div style="margin-top: 30px;">
+                    <p><i class="fab fa-instagram" style="color: var(--primary); margin-right: 10px;"></i> @momo.nails.art</p>
+                    <p><i class="fab fa-whatsapp" style="color: var(--primary); margin-right: 10px;"></i> +56 9 XXXX XXXX</p>
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 10px;"></i> Santiago, Chile</p>
+                </div>
+            </div>
+            <div class="contact-form glass reveal">
+                <form>
+                    <input type="text" placeholder="Nombre Completo" required>
+                    <input type="email" placeholder="Correo Electrónico" required>
+                    <select style="width: 100%; padding: 15px; margin-bottom: 20px; background: var(--bg-card); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: var(--text-muted);">
+                        <option value="">Selecciona un Servicio</option>
+                        <option value="nailart">Nail Art</option>
+                        <option value="presson">Press-on Nails</option>
+                        <option value="combinada">Manicura Combinada</option>
+                    </select>
+                    <textarea rows="5" placeholder="Cuéntanos tu idea o consulta..."></textarea>
+                    <button type="submit" class="btn" style="width: 100%; cursor: pointer;">Enviar Mensaje</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container" style="text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p>&copy; 2026 MOMO NAILS. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
