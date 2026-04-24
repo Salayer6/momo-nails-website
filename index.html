@@ -35,6 +35,7 @@
             <a href="#inicio">Inicio</a>
             <a href="#servicios">Servicios</a>
             <a href="#galeria">Galería</a>
+            <a href="#procreate-viewer">Diseño 3D</a>
             <a href="#contacto">Contacto</a>
         </div>
         <a href="https://wa.me/yournumber" class="btn" style="padding: 10px 25px; font-size: 0.8rem;">RESERVAR</a>
@@ -43,11 +44,12 @@
     <!-- Hero Section -->
     <header class="hero" id="inicio">
         <div class="hero-content">
-            <h1>Arte que <span>Vistes</span></h1>
+            <span class="hero-eyebrow">Nail Art · Press-on · Técnica Combinada</span>
+            <h1>Arte que <em>Viste</em></h1>
             <p>Especialistas en diseño de autor, press-on personalizadas y cuidado profesional de tus uñas.</p>
             <div class="hero-btns">
                 <a href="#servicios" class="btn">Ver Servicios</a>
-                <a href="#galeria" class="btn" style="background: transparent; color: var(--primary); margin-left: 15px;">Explorar Galería</a>
+                <a href="#galeria" class="btn btn-outline">Explorar Galería</a>
             </div>
         </div>
     </header>
@@ -99,6 +101,120 @@
         </div>
     </section>
 
+    <!-- ═══════════════════════════════════════════════════════════
+         PROCREATE 3D VIEWER SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="procreate-viewer" class="container">
+
+        <!-- Header -->
+        <div style="text-align:center;">
+            <div class="pv-badge"><i class="fas fa-cube"></i> Nuevo · Exclusivo</div>
+            <h2 class="section-title">Diseño en <span>3D</span></h2>
+            <p class="pv-subtitle">
+                Carga tus archivos de Procreate y visualiza tu diseño en tiempo real
+                sobre un modelo 3D de uña. Rota, inspecciona y comparte.
+            </p>
+        </div>
+
+        <!-- Two-column layout -->
+        <div class="pv-layout">
+
+            <!-- LEFT: Upload Panel -->
+            <div class="pv-upload-panel">
+
+                <!-- Drop Zone -->
+                <div id="pv-dropzone" class="pv-dropzone" role="button" aria-label="Subir archivo Procreate">
+                    <div class="pv-drop-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>Arrastra tu archivo aquí</h3>
+                    <p>o haz clic para explorar desde tu dispositivo</p>
+                    <span class="pv-browse-btn">Explorar archivos</span>
+                    <div class="pv-format-tags">
+                        <span class="pv-format-tag">.procreate</span>
+                    </div>
+                    <input id="pv-file-input" type="file" accept=".procreate" style="display:none;" aria-label="Selector de archivo Procreate">
+                </div>
+
+                <!-- File Info -->
+                <div id="pv-file-info" class="pv-file-info"></div>
+
+                <!-- How-to Steps -->
+                <ul class="pv-steps">
+                    <li>
+                        <span class="pv-step-num">1</span>
+                        <span>Exporta tu diseño desde Procreate como archivo <strong>.procreate</strong> y compártelo a tu PC.</span>
+                    </li>
+                    <li>
+                        <span class="pv-step-num">2</span>
+                        <span>Arrastra o selecciona el archivo en la zona de arriba. El proceso es completamente local — tu archivo no se sube a ningún servidor.</span>
+                    </li>
+                    <li>
+                        <span class="pv-step-num">3</span>
+                        <span>El visor composita todas tus capas y las aplica sobre un modelo 3D de uña en tiempo real.</span>
+                    </li>
+                    <li>
+                        <span class="pv-step-num">4</span>
+                        <span>Usa los controles para rotar, hacer zoom y revisar tu arte desde todos los ángulos.</span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- RIGHT: 3D Canvas -->
+            <div class="pv-canvas-panel">
+
+                <div class="pv-canvas-wrapper">
+                    <!-- Placeholder -->
+                    <div id="pv-placeholder" class="pv-placeholder">
+                        <div class="pv-placeholder-art">
+                            <!-- Inline SVG nail outline -->
+                            <svg class="pv-nail-svg" viewBox="0 0 100 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 100 L10 50 Q10 10 50 10 Q90 10 90 50 L90 100 Q85 130 50 132 Q15 130 10 100Z"
+                                      stroke="#d4a373" stroke-width="3" fill="rgba(212,163,115,0.08)"/>
+                                <path d="M25 98 Q25 120 50 122 Q75 120 75 98" stroke="#ffb7c5" stroke-width="1.5" fill="none" opacity="0.4"/>
+                                <!-- Shimmer lines -->
+                                <line x1="30" y1="30" x2="45" y2="60" stroke="#d4a373" stroke-width="1" opacity="0.3"/>
+                                <line x1="55" y1="25" x2="65" y2="55" stroke="#ffb7c5" stroke-width="1" opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <p>Sube un archivo .procreate para ver el modelo</p>
+                    </div>
+
+                    <!-- Loading Overlay -->
+                    <div id="pv-loader" class="pv-loader">
+                        <div class="pv-spinner"></div>
+                        <p>Procesando capas…</p>
+                    </div>
+
+                    <!-- Three.js Canvas -->
+                    <canvas id="pv-canvas"></canvas>
+                </div>
+
+                <!-- Controls -->
+                <div class="pv-controls">
+                    <button id="pv-btn-rotate" class="pv-ctrl-btn" onclick="pvToggleAutoRotate()">
+                        <i class="fas fa-pause"></i> Pausar rotación
+                    </button>
+                    <button id="pv-btn-wire" class="pv-ctrl-btn" onclick="pvToggleWireframe()">
+                        <i class="fas fa-border-all"></i> Wireframe
+                    </button>
+                    <button class="pv-ctrl-btn" onclick="pvResetCamera()">
+                        <i class="fas fa-compress-arrows-alt"></i> Recentrar
+                    </button>
+                </div>
+
+                <p class="pv-hint">
+                    <i class="fas fa-mouse-pointer"></i>
+                    Arrastra para rotar &nbsp;·&nbsp;
+                    <i class="fas fa-search"></i>
+                    Scroll para zoom &nbsp;·&nbsp;
+                    <i class="fas fa-arrows-alt"></i>
+                    Clic derecho para pan
+                </p>
+
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contacto" class="container">
         <h2 class="section-title">¿Lista para <span>Brillar?</span></h2>
@@ -107,9 +223,9 @@
                 <h3>Reserva tu Cita</h3>
                 <p>Ubicados en el corazón de la ciudad. Atendemos bajo previa cita para brindarte una experiencia exclusiva.</p>
                 <div style="margin-top: 30px;">
-                    <p><i class="fab fa-instagram" style="color: var(--primary); margin-right: 10px;"></i> @momo.nails.art</p>
-                    <p><i class="fab fa-whatsapp" style="color: var(--primary); margin-right: 10px;"></i> +56 9 XXXX XXXX</p>
-                    <p><i class="fas fa-map-marker-alt" style="color: var(--primary); margin-right: 10px;"></i> Santiago, Chile</p>
+                    <div class="contact-detail"><i class="fab fa-instagram"></i> @momo.nails_manicure</div>
+                    <div class="contact-detail"><i class="fab fa-whatsapp"></i> +56 9 XXXX XXXX</div>
+                    <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> Santiago, Chile</div>
                 </div>
             </div>
             <div class="contact-form glass reveal">
@@ -130,11 +246,16 @@
     </section>
 
     <footer>
-        <div class="container" style="text-align: center; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1);">
-            <p>&copy; 2026 MOMO NAILS. Todos los derechos reservados.</p>
+        <div class="container footer-inner">
+            <span class="footer-logo">MOMO NAILS</span>
+            <p>&copy; 2026 Momo Nails. Todos los derechos reservados.</p>
         </div>
     </footer>
 
+    <!-- Toast notification (shared by Procreate viewer) -->
+    <div id="pv-toast" class="pv-toast" role="status" aria-live="polite"></div>
+
     <script src="script.js"></script>
+    <script src="procreate-viewer.js"></script>
 </body>
 </html>
