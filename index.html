@@ -248,9 +248,47 @@
     <footer>
         <div class="container footer-inner">
             <span class="footer-logo">MOMO NAILS</span>
-            <p>&copy; 2026 Momo Nails. Todos los derechos reservados.</p>
+            <p id="footer-copy">&copy; 2026 Momo Nails. <span id="footer-phrase">Todos los derechos reservados.</span></p>
         </div>
     </footer>
+
+    <script>
+        // ✨ Frases juguetonas del footer — se rotan cada 4 segundos
+        (function () {
+            const frases = [
+                "Todos los esmaltes reservados. 💅",
+                "Hecho con amor, glitter y mucha paciencia. ✨",
+                "Ninguna uña fue maltratada en la producción de este sitio. 🙈",
+                "Prohibida la copia. Permitido el asombro. 🌸",
+                "Creado en modo manicura. En serio. 💖",
+                "Todos los derechos, y también los cutículas, reservados. 🌷",
+                "El arte no se roba, se admira. 🎨",
+                "Uñas únicas. Código único. Filosofía única. 🦋",
+                "Patentado por el universo del Nail Art. 🌙",
+                "Inspirado en tus uñas favoritas. 💫",
+            ];
+
+            const el = document.getElementById("footer-phrase");
+            let i = 0;
+
+            function rotar() {
+                el.style.opacity = "0";
+                el.style.transform = "translateY(6px)";
+                setTimeout(function () {
+                    i = (i + 1) % frases.length;
+                    el.textContent = frases[i];
+                    el.style.opacity = "1";
+                    el.style.transform = "translateY(0)";
+                }, 400);
+            }
+
+            // Estilo de transición inline para no depender del CSS externo
+            el.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+            el.style.display = "inline-block";
+
+            setInterval(rotar, 4000);
+        })();
+    </script>
 
     <!-- Toast notification (shared by Procreate viewer) -->
     <div id="pv-toast" class="pv-toast" role="status" aria-live="polite"></div>
