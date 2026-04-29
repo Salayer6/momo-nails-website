@@ -66,3 +66,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Services Theme Switcher
+const servicesWrapper = document.querySelector('.services-wrapper');
+const serviceColumns = document.querySelectorAll('.service-column');
+
+if (servicesWrapper && serviceColumns.length > 0) {
+    serviceColumns.forEach(column => {
+        column.addEventListener('mouseenter', () => {
+            const theme = column.getAttribute('data-theme');
+            servicesWrapper.setAttribute('data-active-theme', theme);
+        });
+        
+        column.addEventListener('mouseleave', () => {
+            servicesWrapper.removeAttribute('data-active-theme');
+        });
+    });
+}
